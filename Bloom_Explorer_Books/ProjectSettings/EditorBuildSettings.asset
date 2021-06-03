@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/old/EgyptPrototypes.unity
-    guid: 406e41a23a69a4959a208327886a6e9e
+    path: Assets/_mainMenu.unity
+    guid: f8df07500f8b84e5eacb6c0db0be82db
+  - enabled: 1
+    path: Assets/_cambrianExplorer.unity
+    guid: 7a74a641a4d274e5596195a7ddc7a7f8
   m_configObjects: {}
