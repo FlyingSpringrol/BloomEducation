@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class UiViewControl : MonoBehaviour
 {
     [SerializeField]
-    private TouchControl tc;
+    private TouchControl touchController;
     [SerializeField]
     private ScrollRect popupRect;
 
@@ -106,12 +106,13 @@ public class UiViewControl : MonoBehaviour
     public void OpenActiveStory()
     {
         CloseActive();
+        touchController.canPan = false;
         currStory.gameObject.SetActive(true);
         storyRect.gameObject.SetActive(true);
     }
     public void OpenPopupUiElement(RectTransform targetRectTransform)
     {
-        tc.canPan = false;
+        touchController.canPan = false;
         popupRect.gameObject.SetActive(true);
         if (currActive)
         {
@@ -139,7 +140,7 @@ public class UiViewControl : MonoBehaviour
         popupRect.gameObject.SetActive(false);
         storyRect.gameObject.SetActive(false);
 
-        tc.canPan = true;
+        touchController.canPan = true;
     }
 
     //button utilities
@@ -150,7 +151,7 @@ public class UiViewControl : MonoBehaviour
         //set curr active
         currActive = exitPopup;
         //disable panning
-        tc.canPan = false;
+        touchController.canPan = false;
         //exit
         exitPopup.SetActive(true);
 
