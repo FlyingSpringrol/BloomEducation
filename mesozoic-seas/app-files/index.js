@@ -19,12 +19,21 @@
   var Marzipano = window.Marzipano;
   var bowser = window.bowser;
   var data = window.APP_DATA;
-  console.log(data);
   var viewIdx = 0;
+  var sceneStories = [];
 
   // Grab elements from DOM.
   var panoElement = document.querySelector('#pano');
-
+  const turnOnActiveStory = (viewIdx) =>{
+    turnOffActiveModal();
+    sceneStories[viewIdx].classList.remove('hidden');
+    console.log(sceneStories[viewIdx]);
+  }
+  const turnOffActiveModal = () =>{
+    document.body.querySelectorAll('.info-hotspot-modal').forEach(element => {
+      (element.classList.add('hidden'))
+    });
+  }
   const generateNavbar = () =>{
     var bottomBar = document.createElement('div');
     bottomBar.classList.add('bottom-bar');
@@ -33,6 +42,10 @@
   
     var left = document.createElement('div');
     left.classList.add('page-button');
+
+    var center= document.createElement('div');
+    center.classList.add('page-button');
+
     var right = document.createElement('div');
     right.classList.add('page-button');
     left.addEventListener('click', ()=>{
@@ -43,7 +56,12 @@
       viewIdx-=1;
       switchScene(scenes[viewIdx]);
     })
-    bottomBarLayout.appendChild(right)
+    center.addEventListener('click', ()=>{
+      turnOnActiveStory(viewIdx);
+    })
+    bottomBarLayout.appendChild(right);
+    bottomBarLayout.appendChild(center);
+
     bottomBarLayout.appendChild(left);
     bottomBar.appendChild(bottomBarLayout);
     document.body.appendChild(bottomBar);  
@@ -109,10 +127,11 @@
 
     // Create info hotspots.
     data.infoHotspots.forEach(function(hotspot) {
-      console.log(hotspot);
       var element = createInfoHotspotElement(hotspot);
       scene.hotspotContainer().createHotspot(element, { yaw: hotspot.yaw, pitch: hotspot.pitch });
     });
+
+    sceneStories.push(createStoryModal(data.storyInfo));
 
     return {
       data: data,
@@ -121,62 +140,54 @@
     };
   });
 
-
-
-
-
   function switchScene(scene) {
+    turnOffActiveModal();
     scene.view.setParameters(scene.data.initialViewParameters);
     scene.scene.switchTo();
   }
 
 
+  function createStoryModal(storyInfo){
+    var modalContent = document.createElement('div');
+    modalContent.classList.add('info-hotspot-modal-content');
 
+    const title = document.createElement('h1');
+    title.innerHTML = storyInfo.title;
 
-  function createLinkHotspotElement(hotspot) {
+    var modal = document.createElement('div');
+    modal.classList.add('info-hotspot-modal');
+    modal.classList.add('hidden');
 
-    // Create wrapper element to hold icon and tooltip.
-    var wrapper = document.createElement('div');
-    wrapper.classList.add('hotspot');
-    wrapper.classList.add('link-hotspot');
+    document.body.appendChild(modal);
+    var closeWrapper = document.createElement('div');
+    closeWrapper.classList.add('close-button-wrapper');
+    closeWrapper.innerHTML = 'x';
+    modalContent.appendChild(closeWrapper);
+    modalContent.appendChild(title);
 
-    // Create image element.
-    var icon = document.createElement('img');
-    icon.src = 'img/link.png';
-    icon.classList.add('link-hotspot-icon');
-
-    // Set rotation transform.
-    var transformProperties = [ '-ms-transform', '-webkit-transform', 'transform' ];
-    for (var i = 0; i < transformProperties.length; i++) {
-      var property = transformProperties[i];
-      icon.style[property] = 'rotate(' + hotspot.rotation + 'rad)';
+    for (var i = 0; i < storyInfo.paragraphs.length; i++){
+      var content = storyInfo.paragraphs[i];
+      var par = document.createElement('p');
+      par.innerHTML = content;
+      modalContent.appendChild(par);
     }
+    modal.appendChild(modalContent);
 
 
+    closeWrapper.addEventListener('click', ()=>{
+      modal.classList.add('hidden');
+    })
 
-    // Prevent touch and scroll events from reaching the parent element.
-    // This prevents the view control logic from interfering with the hotspot.
-    stopTouchAndScrollEventPropagation(wrapper);
+    return modal;
 
-    // Create tooltip element.
-    var tooltip = document.createElement('div');
-    tooltip.classList.add('hotspot-tooltip');
-    tooltip.classList.add('link-hotspot-tooltip');
-    tooltip.innerHTML = findSceneDataById(hotspot.target).name;
-
-    wrapper.appendChild(icon);
-    wrapper.appendChild(tooltip);
-
-    return wrapper;
   }
 
   function createInfoHotspotElement(hotspot) {
 
     // Create wrapper element to hold icon and tooltip.
-    var wrapper = document.createElement('div');
-    wrapper.classList.add('hotspot');
-    wrapper.classList.add('info-hotspot');
-
+    var hotspotWrapper = document.createElement('div');
+    hotspotWrapper.classList.add('hotspot');
+    hotspotWrapper.classList.add('info-hotspot');
     // Create image element.
     var iconWrapper = document.createElement('div');
     iconWrapper.classList.add('info-hotspot-icon-wrapper');
@@ -185,21 +196,43 @@
     icon.classList.add('info-hotspot-icon');
     iconWrapper.appendChild(icon);
 
-    wrapper.appendChild(iconWrapper);
+    hotspotWrapper.appendChild(iconWrapper);
 
 
 
+    //Do the modal stuff
     var modalContent = document.createElement('div');
     modalContent.classList.add('info-hotspot-modal-content');
 
-    // create modal content
+
+
+    var closeWrapper = document.createElement('div');
+    closeWrapper.classList.add('close-button-wrapper');
+    closeWrapper.innerHTML = 'x';
+
+    // title, body, image
     var modalTitle = document.createElement('h1');
     modalTitle.innerHTML = hotspot.title;
+
     var modalBody = document.createElement('p');
     modalBody.innerHTML = hotspot.text;
-    console.log(hotspot.fossil);
+
+    var image = document.createElement('img');
+    image.classList.add('modal-image');
+    image.src = hotspot.image;
+
+    // Create a modal for the hotspot content to appear on mobile mode.
+    var modal = document.createElement('div');
+    modal.classList.add('info-hotspot-modal');
+    modal.classList.add('hidden');
+    document.body.appendChild(modal);
+    modalContent.appendChild(closeWrapper);
+    modalContent.appendChild(modalTitle);
+    modalContent.appendChild(modalBody);
+    modalContent.appendChild(image);
+    modal.appendChild(modalContent);
+
     if (hotspot.fossil){
-      console.log(hotspot.fossil);
       var citationWrapper = document.createElement('div');
       var fossil = document.createElement('img');
       fossil.src = hotspot.fossil.url;
@@ -214,33 +247,16 @@
 
       modalContent.appendChild(citationWrapper);
     }
-    // Create a modal for the hotspot content to appear on mobile mode.
-    var modal = document.createElement('div');
-    modalContent.appendChild(modalTitle);
-    modalContent.appendChild(modalBody);
-    modal.appendChild(modalContent);
 
-    modal.classList.add('info-hotspot-modal');
-    document.body.appendChild(modal);
-
-    var toggle = function() {
-      modal.classList.toggle('visible');
-    };
-
-    // Show content when hotspot is clicked.
-    wrapper.addEventListener('click', toggle);
-    modal.addEventListener('click', ()=>{
-      modal.classList.toggle('visible');
+    hotspotWrapper.addEventListener('click', ()=>{
+      turnOffActiveModal();
+      modal.classList.remove('hidden');
     })
-    // Hide content when close icon is clicked.
-    //modal.querySelector('.info-hotspot-close-wrapper').addEventListener('click', toggle);
-
-
-    // Prevent touch and scroll events from reaching the parent element.
-    // This prevents the view control logic from interfering with the hotspot.
-    stopTouchAndScrollEventPropagation(wrapper);
-
-    return wrapper;
+    closeWrapper.addEventListener('click', ()=>{
+      modal.classList.add('hidden');
+    })
+    stopTouchAndScrollEventPropagation(hotspotWrapper);
+    return hotspotWrapper;
   }
 
 
@@ -253,16 +269,6 @@
         event.stopPropagation();
       });
     }
-  }
-
-
-  function findSceneDataById(id) {
-    for (var i = 0; i < data.scenes.length; i++) {
-      if (data.scenes[i].id === id) {
-        return data.scenes[i];
-      }
-    }
-    return null;
   }
 
   // Display the initial scene.

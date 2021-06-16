@@ -24,13 +24,42 @@ var APP_DATA = {
         "pitch": -0.4507779128751892,
         "fov": 1.3380262414692456
       },
+      "storyInfo":{
+        "title": "Besano Formation",
+        "paragraphs":[
+          "The mesozoic era is the time from 251 million years ago to 350 million years ago. It is split into three separate periods, known as the Triassic, Jurassic, Cretaceous.",
+          "While the mesozoic dinosaurs that lived on land are extremely well known, (as famously shown in the Jurassic park series), this book focuses on an equally interesting but less known part of the mesozoic: its seas and oceans. ",
+          "Our story begins in the seas of the mid-triassic, 247 million years ago, in what would become the Besano Formation of Switzerland and Italy. ",
+          "By studying these fossils found in this area, we can see that by the middle of the triassic, many interesting organisms had begun to evolve. See what kind of animals you can find!"
+        ]
+      },
       "linkHotspots": [],
       "infoHotspots": [
         {
           "yaw": 0.2411076527030307,
           "pitch": 0.06370333103699721,
           "title": "Foreyia",
-          "text": "Text"
+          "text": "Text",
+          "size": "Size: 0.6 metres (2.0 ft) to 1 metre (3.3 ft) long",
+          "image": "img/animals/Archelon scale.jpg",
+          "fossil": {
+            url: "./img/animals/Archelon scale.jpg",
+            citation: "By Ghedoghedo - Own work, CC BY-SA 3.0",
+            citationUrl: "https://commons.wikimedia.org/w/index.php?curid=15251276",
+          }, 
+        },
+        {
+          "yaw": 1.8220943915733692,
+          "pitch": -0.6709305260783331,
+          "title": "Nothosaurus",
+          "text": "The crocodile-like Nothosaurus preyed on other marine animals, as well as fish its long, spike-like teeth are well adapted to capturing slippery prey.</p  <p>Scientists think that Nothosaurus probably lived on the shore for much of the time, like modern seals do. When swimming, Nothosaurus would use its tail, legs, and webbed feet to propel and steer it through the water. Nothosaurus represents an in between stage in the evolution of Marine reptile showing some adaptations for land and sea dwelling without showing adaptations to being fully aquatic (such as fins and live birth) like its relatives, the plesiosaurs</p>",
+          "size": "Size: 0.6 metres (2.0 ft) to 1 metre (3.3 ft) long",
+          "image": "img/animals/Archelon scale.jpg",
+          "fossil": {
+            url: "./img/saurichthysFossil.jpg",
+            citation: "By Ghedoghedo - Own work, CC BY-SA 3.0",
+            citationUrl: "https://commons.wikimedia.org/w/index.php?curid=15251276",
+          }, 
         },
         {
           "yaw": 2.5672103017894257,
@@ -56,7 +85,7 @@ var APP_DATA = {
           "title": "Saurichthys",
           "text": "<p>Saurichthys (meaning: 'lizard fish') was a type of predatory fish from the Triassic period. Its long, snake-like body and pointy jaws filled with sharp teeth are reminiscent of the modern barracuda, a fearsome predatory fish.</p> <p>Fossils of Saurichthys have been found all over the world. It inhabited both marine and freshwater environments.</p> <p>Some fossils of Sauricthys have evidence of mothers giving birth to live babies, much like modern sharks do!</p>",
           "size": "Size: 0.6 metres (2.0 ft) to 1 metre (3.3 ft) long",
-          "image": "./img/saurichthys.jpg",
+          "image": "./img/animals/Archelon scale.jpeg",
           "fossil": {
             url: "./img/saurichthysFossil.jpg",
             citation: "By Ghedoghedo - Own work, CC BY-SA 3.0",
@@ -75,19 +104,6 @@ var APP_DATA = {
           "title": "<span id=\"docs-internal-guid-af999c9d-7fff-e0a6-272a-6934ccff35ef\"><span style=\"font-size: 11pt; font-family: Avenir, sans-serif; color: rgb(0, 0, 0); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;\">Tanystropheus</span></span>",
           "text": "Text"
         },
-        {
-          "yaw": 1.8220943915733692,
-          "pitch": -0.6709305260783331,
-          "title": "Nothosaurus",
-          "text": "The crocodile-like Nothosaurus preyed on other marine animals, as well as fish its long, spike-like teeth are well adapted to capturing slippery prey.</p  <p>Scientists think that Nothosaurus probably lived on the shore for much of the time, like modern seals do. When swimming, Nothosaurus would use its tail, legs, and webbed feet to propel and steer it through the water. Nothosaurus represents an in between stage in the evolution of Marine reptile showing some adaptations for land and sea dwelling without showing adaptations to being fully aquatic (such as fins and live birth) like its relatives, the plesiosaurs</p>",
-          "size": "Size: 0.6 metres (2.0 ft) to 1 metre (3.3 ft) long",
-          "image": "./img/saurichthys.jpg",
-          "fossil": {
-            url: "./img/saurichthysFossil.jpg",
-            citation: "By Ghedoghedo - Own work, CC BY-SA 3.0",
-            citationUrl: "https://commons.wikimedia.org/w/index.php?curid=15251276",
-          }, 
-        }
       ]
     },
     {
@@ -115,6 +131,15 @@ var APP_DATA = {
         "fov": 1.3380262414692456
       },
       "linkHotspots": [],
+      "storyInfo":{
+        "title": "Besano Formation",
+        "paragraphs":[
+          "The mesozoic era is the time from 251 million years ago to 350 million years ago. It is split into three separate periods, known as the Triassic, Jurassic, Cretaceous.",
+          "While the mesozoic dinosaurs that lived on land are extremely well known, (as famously shown in the Jurassic park series), this book focuses on an equally interesting but less known part of the mesozoic: its seas and oceans. ",
+          "Our story begins in the seas of the mid-triassic, 247 million years ago, in what would become the Besano Formation of Switzerland and Italy. ",
+          "By studying these fossils found in this area, we can see that by the middle of the triassic, many interesting organisms had begun to evolve. See what kind of animals you can find!"
+        ]
+      },
       "infoHotspots": [
         {
           "yaw": -1.2489917749207962,
@@ -171,6 +196,15 @@ var APP_DATA = {
         "yaw": -0.874774688754794,
         "pitch": -0.46870550735743777,
         "fov": 1.3380262414692456
+      },
+      "storyInfo":{
+        "title": "Besano Formation",
+        "paragraphs":[
+          "The mesozoic era is the time from 251 million years ago to 350 million years ago. It is split into three separate periods, known as the Triassic, Jurassic, Cretaceous.",
+          "While the mesozoic dinosaurs that lived on land are extremely well known, (as famously shown in the Jurassic park series), this book focuses on an equally interesting but less known part of the mesozoic: its seas and oceans. ",
+          "Our story begins in the seas of the mid-triassic, 247 million years ago, in what would become the Besano Formation of Switzerland and Italy. ",
+          "By studying these fossils found in this area, we can see that by the middle of the triassic, many interesting organisms had begun to evolve. See what kind of animals you can find!"
+        ]
       },
       "linkHotspots": [],
       "infoHotspots": [
@@ -236,6 +270,15 @@ var APP_DATA = {
         "pitch": -0.8618499835453157,
         "fov": 1.3380262414692456
       },
+      "storyInfo":{
+        "title": "Besano Formation",
+        "paragraphs":[
+          "The mesozoic era is the time from 251 million years ago to 350 million years ago. It is split into three separate periods, known as the Triassic, Jurassic, Cretaceous.",
+          "While the mesozoic dinosaurs that lived on land are extremely well known, (as famously shown in the Jurassic park series), this book focuses on an equally interesting but less known part of the mesozoic: its seas and oceans. ",
+          "Our story begins in the seas of the mid-triassic, 247 million years ago, in what would become the Besano Formation of Switzerland and Italy. ",
+          "By studying these fossils found in this area, we can see that by the middle of the triassic, many interesting organisms had begun to evolve. See what kind of animals you can find!"
+        ]
+      },
       "linkHotspots": [],
       "infoHotspots": [
         {
@@ -293,6 +336,15 @@ var APP_DATA = {
         "yaw": 2.552525634085698,
         "pitch": -0.6838722750432016,
         "fov": 1.3380262414692456
+      },
+      "storyInfo":{
+        "title": "Besano Formation",
+        "paragraphs":[
+          "The mesozoic era is the time from 251 million years ago to 350 million years ago. It is split into three separate periods, known as the Triassic, Jurassic, Cretaceous.",
+          "While the mesozoic dinosaurs that lived on land are extremely well known, (as famously shown in the Jurassic park series), this book focuses on an equally interesting but less known part of the mesozoic: its seas and oceans. ",
+          "Our story begins in the seas of the mid-triassic, 247 million years ago, in what would become the Besano Formation of Switzerland and Italy. ",
+          "By studying these fossils found in this area, we can see that by the middle of the triassic, many interesting organisms had begun to evolve. See what kind of animals you can find!"
+        ]
       },
       "linkHotspots": [],
       "infoHotspots": [
@@ -357,6 +409,15 @@ var APP_DATA = {
         "yaw": -0.04790050739438456,
         "pitch": -0.605268128556478,
         "fov": 1.3380262414692456
+      },
+      "storyInfo":{
+        "title": "Besano Formation",
+        "paragraphs":[
+          "The mesozoic era is the time from 251 million years ago to 350 million years ago. It is split into three separate periods, known as the Triassic, Jurassic, Cretaceous.",
+          "While the mesozoic dinosaurs that lived on land are extremely well known, (as famously shown in the Jurassic park series), this book focuses on an equally interesting but less known part of the mesozoic: its seas and oceans. ",
+          "Our story begins in the seas of the mid-triassic, 247 million years ago, in what would become the Besano Formation of Switzerland and Italy. ",
+          "By studying these fossils found in this area, we can see that by the middle of the triassic, many interesting organisms had begun to evolve. See what kind of animals you can find!"
+        ]
       },
       "linkHotspots": [],
       "infoHotspots": [
