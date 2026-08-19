@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ancient Egypt 360° Explorer</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.7/build/pannellum.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="viewer" aria-label="Interactive Ancient Egypt panorama"></main>
+  <header class="topbar">
+    <a class="brand" href="../" aria-label="Return to Explorer Books home"><span class="brand-mark">B</span><span>Bloom Education</span></a>
+    <button id="fullscreen" class="icon-button" type="button" aria-label="Enter fullscreen" title="Fullscreen">⛶</button>
+  </header>
+  <section class="scene-card" aria-live="polite">
+    <p class="eyebrow">Ancient Egypt expedition</p>
+    <div class="scene-heading">
+      <h1 id="scene-title"></h1>
+      <button id="scene-toggle" class="scene-toggle" type="button" aria-expanded="true" aria-controls="scene-details" aria-label="Show or hide scene description"><span aria-hidden="true">⌃</span></button>
+    </div>
+    <div id="scene-details"><p id="scene-description" class="scene-description"></p><p id="scene-count"></p></div>
+  </section>
+  <div class="hint" id="hint"><span class="mouse">↕</span> Scroll to explore scenes <span>•</span> Drag to look around</div>
+  <nav class="scene-nav" aria-label="Ancient Egypt scenes">
+    <button id="previous" class="arrow" type="button" aria-label="Previous scene">←</button>
+    <div id="scene-strip" class="scene-strip"></div>
+    <button id="next" class="arrow" type="button" aria-label="Next scene">→</button>
+  </nav>
+  <div class="zoom-controls" aria-label="Zoom controls"><button id="zoom-in" type="button" aria-label="Zoom in">+</button><button id="zoom-out" type="button" aria-label="Zoom out">−</button></div>
+  <div id="story-modal" class="story-modal" hidden>
+    <button class="modal-scrim" type="button" aria-label="Close story" data-close-modal></button>
+    <article class="story-card" role="dialog" aria-modal="true" aria-labelledby="story-title">
+      <button class="story-close" type="button" aria-label="Close" data-close-modal>×</button>
+      <div class="story-visual"><span class="kind-pill">◉ STORY</span><img id="story-image" alt=""></div>
+      <div class="story-copy"><p id="story-kicker" class="story-kicker"></p><h2 id="story-title"></h2><p id="story-body"></p></div>
+    </article>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.7/build/pannellum.js"></script>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -9,7 +9,7 @@
     { file: 'scene6.jpg', width: 3840, title: 'The Ordovician Ocean', description: 'Now we jump forward roughly 20 million years into the Ordovician. Marine ecosystems have become richer and more complex, and straight-shelled nautiloids cruise through the open water.' },
     { file: 'scene7.jpg', width: 3840, title: 'A Crowded Ancient Sea', description: 'Bryozoan colonies cover the seafloor while trilobites, cephalopods, and other invertebrates move through the water around them. These oceans are becoming some of the most diverse ecosystems Earth has yet seen.' },
     { file: 'scene8.jpg', width: 3840, title: 'Into the Silurian', description: 'Another 40 million years forward brings us to the Silurian. The oceans are still thriving, but the world is changing—and life is beginning to explore entirely new environments.' },
-    { file: 'scene9.jpg', width: 3960, title: 'Sea Scorpions', description: 'Eurypterids—giant relatives of modern spiders and scorpions—prowl through the shallows. Along the shoreline, some of the earliest simple land plants are beginning to take hold.' },
+    { file: 'scene9.jpg', width: 3960, title: 'Predators of the Silurian', description: 'The Silurian oceans are home to a new mix of hunters. Early bony fishes swim through the water, while eurypterids—formidable sea scorpions—patrol the shallows in search of prey.' },
     { file: 'scene10.jpg', width: 3840, title: 'Until Next Time', description: 'And that’s where our journey ends for now. We’ve crossed more than 100 million years of evolution—but Earth’s story is only getting started.' }
   ];
 

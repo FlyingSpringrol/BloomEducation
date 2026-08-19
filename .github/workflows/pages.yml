@@ -29,6 +29,8 @@ jobs:
           mkdir -p _site/asset-pipeline
           cp -R pages/. _site/
           cp -R palezoic _site/palezoic
+          cp -R egypt _site/egypt
+          cp -R Explorer-books-web/mesozoic-seas _site/mesozoic-seas
           cp -R asset-pipeline/organism_renders _site/asset-pipeline/organism_renders
 
       - name: Upload Pages artifact

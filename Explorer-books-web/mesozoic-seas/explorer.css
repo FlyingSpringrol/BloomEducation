@@ -5,6 +5,23 @@
   color: #f6f5ec;
 }
 
+/* Egypt keeps the Paleozoic interaction system, with a warmer archival palette. */
+body { background: #071212; }
+#viewer { background: #071212; }
+.eyebrow, .story-kicker { color: #69e7ff; }
+.story-card { grid-template-areas: "visual copy"; grid-template-rows: minmax(440px, auto); }
+.story-copy { display: flex; flex-direction: column; justify-content: center; padding: 44px; }
+.story-copy h2 { margin: 5px 40px 20px 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(38px, 5vw, 62px); font-weight: 400; line-height: 1.02; }
+.story-kicker { margin: 0; font-size: 11px; font-weight: 750; letter-spacing: .17em; text-transform: uppercase; }
+#story-body { margin: 0; padding-top: 20px; border-top: 1px solid rgba(105,231,255,.22); color: #eef3f5; font-size: 17px; line-height: 1.7; }
+.story-visual img { width: 100%; height: 100%; max-height: 560px; object-fit: cover; }
+@media (max-width: 640px) {
+  .story-card { display: block; }
+  .story-copy { padding: 22px 18px 28px; }
+  .story-copy h2 { margin: 4px 30px 13px 0; font-size: 31px; }
+  #story-body { padding-top: 13px; font-size: 14px; line-height: 1.55; }
+}
+
 * { box-sizing: border-box; }
 html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; }
 button { color: inherit; font: inherit; }
@@ -81,8 +98,8 @@ button { color: inherit; font: inherit; }
 
 body.loading #viewer { opacity: .72; }
 
-.organism-hotspot-shell { z-index: 6 !important; width: 0; height: 0; pointer-events: auto; }
-.organism-hotspot {
+.story-hotspot-shell { z-index: 6 !important; width: 0; height: 0; pointer-events: auto; }
+.story-hotspot {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -97,14 +114,14 @@ body.loading #viewer { opacity: .72; }
   transform: translate(-50%, -50%);
   transition: border-color .2s, transform .2s, background .2s;
 }
-.organism-hotspot span { display: grid; width: 23px; height: 23px; place-items: center; border-radius: 50%; color: #03131b; background: #62e7ff; font-size: 18px; line-height: 1; }
-.organism-hotspot b { max-width: 150px; overflow: hidden; font-size: 11px; font-weight: 650; letter-spacing: .04em; text-overflow: ellipsis; white-space: nowrap; }
-.organism-hotspot:hover, .organism-hotspot:focus-visible { border-color: #7beaff; background: rgba(5, 39, 52, .94); transform: translate(-50%, -50%) scale(1.06); outline: none; }
+.story-hotspot span { display: grid; width: 23px; height: 23px; place-items: center; border-radius: 50%; color: #03131b; background: #69e7ff; font-size: 18px; line-height: 1; }
+.story-hotspot b { max-width: 150px; overflow: hidden; font-size: 11px; font-weight: 650; letter-spacing: .04em; text-overflow: ellipsis; white-space: nowrap; }
+.story-hotspot:hover, .story-hotspot:focus-visible { border-color: #7beaff; background: rgba(5, 39, 52, .94); transform: translate(-50%, -50%) scale(1.06); outline: none; }
 
-.organism-modal[hidden] { display: none; }
-.organism-modal { position: fixed; z-index: 20; inset: 0; display: grid; place-items: center; padding: 24px; }
+.story-modal[hidden] { display: none; }
+.story-modal { position: fixed; z-index: 20; inset: 0; display: grid; place-items: center; padding: 24px; }
 .modal-scrim { position: absolute; inset: 0; width: 100%; height: 100%; padding: 0; border: 0; background: rgba(0, 8, 14, .66); backdrop-filter: blur(8px); cursor: default; animation: popup-scrim-in .6s ease both; }
-.organism-card {
+.story-card {
   position: relative;
   display: grid;
   grid-template-columns: minmax(320px, .93fr) minmax(420px, 1.07fr);
@@ -121,37 +138,37 @@ body.loading #viewer { opacity: .72; }
 }
 @keyframes popup-scrim-in { from { opacity: 0; } to { opacity: 1; } }
 @keyframes popup-card-in { from { opacity: 0; transform: translateY(18px) scale(.985); } to { opacity: 1; transform: translateY(0) scale(1); } }
-.organism-close { position: absolute; z-index: 3; top: 20px; right: 20px; display: grid; width: 46px; height: 46px; padding: 0 0 4px; place-items: center; border: 1px solid rgba(188, 228, 240, .34); border-radius: 50%; color: #edfaff; background: rgba(0, 13, 22, .48); font-size: 34px; font-weight: 200; line-height: 1; cursor: pointer; }
-.organism-close:hover { border-color: #6ee8ff; background: rgba(54, 205, 235, .13); }
-.organism-visual { position: relative; grid-area: visual; min-height: 390px; overflow: hidden; border-radius: 21px 0 0 0; background: radial-gradient(circle at 50% 35%, #173c4c, #071923 68%); }
-.organism-visual::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, transparent 55%, rgba(2, 17, 26, .65)); }
-.organism-visual img { width: 100%; height: 100%; max-height: 440px; object-fit: cover; }
+.story-close { position: absolute; z-index: 3; top: 20px; right: 20px; display: grid; width: 46px; height: 46px; padding: 0 0 4px; place-items: center; border: 1px solid rgba(188, 228, 240, .34); border-radius: 50%; color: #edfaff; background: rgba(0, 13, 22, .48); font-size: 34px; font-weight: 200; line-height: 1; cursor: pointer; }
+.story-close:hover { border-color: #7beaff; background: rgba(54, 205, 235, .13); }
+.story-visual { position: relative; grid-area: visual; min-height: 390px; overflow: hidden; border-radius: 21px 0 0 0; background: radial-gradient(circle at 50% 35%, #173c4c, #071923 68%); }
+.story-visual::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, transparent 55%, rgba(2, 17, 26, .65)); }
+.story-visual img { width: 100%; height: 100%; max-height: 440px; object-fit: cover; }
 .kind-pill { position: absolute; z-index: 2; display: flex; align-items: center; border: 1px solid rgba(120, 220, 241, .3); border-radius: 22px; color: #6fe7ff; background: rgba(1, 17, 26, .72); backdrop-filter: blur(8px); font-size: 13px; }
 .kind-pill { top: 23px; left: 24px; gap: 8px; padding: 8px 13px; }
-.organism-copy { grid-area: copy; padding: 30px 30px 22px; }
-.organism-copy h2 { margin: 0 58px 2px 0; font-size: clamp(34px, 4vw, 52px); line-height: 1.05; letter-spacing: -.035em; }
+.story-copy { grid-area: copy; padding: 30px 30px 22px; }
+.story-copy h2 { margin: 0 58px 2px 0; font-size: clamp(34px, 4vw, 52px); line-height: 1.05; letter-spacing: -.035em; }
 .scientific { margin: 5px 0 20px; color: #abb8bf; font-size: 19px; font-style: italic; }
-.organism-group { display: flex; align-items: center; gap: 15px; margin-bottom: 18px; color: #c9d3d8; }
-.organism-group b { color: #cbd6db; font-size: 14px; font-weight: 450; }
-.organism-group b::first-letter { color: #67e7ff; }
-.organism-group span { width: 1px; height: 24px; background: rgba(164, 205, 218, .22); }
-.organism-description { margin: 0 0 20px; padding-top: 16px; border-top: 1px solid rgba(157, 202, 215, .17); color: #eef3f5; font-size: 15px; line-height: 1.55; }
-.organism-facts { display: grid; grid-template-columns: 1fr 1fr; margin: 0; overflow: hidden; border: 1px solid rgba(139, 207, 225, .22); border-radius: 14px; }
-.organism-facts div { display: grid; grid-template-columns: minmax(105px, .8fr) 1.2fr; min-height: 58px; align-items: center; padding: 10px 13px; border-bottom: 1px solid rgba(139, 207, 225, .16); }
-.organism-facts div:nth-child(odd) { border-right: 1px solid rgba(139, 207, 225, .16); }
-.organism-facts div:nth-last-child(-n+2) { border-bottom: 0; }
-.organism-facts dt { display: flex; align-items: center; gap: 9px; color: #69e7ff; font-size: 11px; font-weight: 650; letter-spacing: .04em; }
-.organism-facts dt i { width: 22px; font-size: 20px; font-style: normal; text-align: center; }
-.organism-facts dd { margin: 0; color: #f0f3f4; font-size: 12px; line-height: 1.25; }
+.story-group { display: flex; align-items: center; gap: 15px; margin-bottom: 18px; color: #c9d3d8; }
+.story-group b { color: #cbd6db; font-size: 14px; font-weight: 450; }
+.story-group b::first-letter { color: #69e7ff; }
+.story-group span { width: 1px; height: 24px; background: rgba(164, 205, 218, .22); }
+.story-description { margin: 0 0 20px; padding-top: 16px; border-top: 1px solid rgba(157, 202, 215, .17); color: #eef3f5; font-size: 15px; line-height: 1.55; }
+.story-facts { display: grid; grid-template-columns: 1fr 1fr; margin: 0; overflow: hidden; border: 1px solid rgba(139, 207, 225, .22); border-radius: 14px; }
+.story-facts div { display: grid; grid-template-columns: minmax(105px, .8fr) 1.2fr; min-height: 58px; align-items: center; padding: 10px 13px; border-bottom: 1px solid rgba(139, 207, 225, .16); }
+.story-facts div:nth-child(odd) { border-right: 1px solid rgba(139, 207, 225, .16); }
+.story-facts div:nth-last-child(-n+2) { border-bottom: 0; }
+.story-facts dt { display: flex; align-items: center; gap: 9px; color: #69e7ff; font-size: 11px; font-weight: 650; letter-spacing: .04em; }
+.story-facts dt i { width: 22px; font-size: 20px; font-style: normal; text-align: center; }
+.story-facts dd { margin: 0; color: #f0f3f4; font-size: 12px; line-height: 1.25; }
 .history-panel small { display: block; color: #d6e0e4; font-size: 10px; letter-spacing: .04em; }
 .history-panel { grid-area: history; display: grid; grid-template-columns: 1fr 1.25fr; gap: 24px; margin: 0 18px; padding: 16px 20px; border: 1px solid rgba(139, 207, 225, .22); border-radius: 14px; }
 .history-panel > div + div { padding-left: 24px; border-left: 1px solid rgba(139, 207, 225, .16); }
 .history-panel strong, .history-panel > div > span { display: block; margin-top: 5px; }
 .history-panel strong { font-size: 17px; }
 .history-panel > div > span { color: #b9c5ca; font-size: 13px; }
-.organism-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
-.organism-tags span { padding: 4px 8px; border: 1px solid rgba(107, 218, 243, .25); border-radius: 12px; color: #9defff; background: rgba(40, 123, 143, .15); font-size: 9px; }
-.organism-tags span:first-child { border-color: rgba(106, 225, 120, .28); color: #9cf19f; background: rgba(54, 152, 65, .19); }
+.story-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.story-tags span { padding: 4px 8px; border: 1px solid rgba(107, 218, 243, .25); border-radius: 12px; color: #9defff; background: rgba(40, 123, 143, .15); font-size: 9px; }
+.story-tags span:first-child { border-color: rgba(106, 225, 120, .28); color: #9cf19f; background: rgba(54, 152, 65, .19); }
 .era-track { grid-area: timeline; display: grid; grid-template-columns: repeat(7, 1fr); margin: 10px 20px 16px; padding-top: 10px; border-top: 8px solid rgba(70, 105, 120, .24); }
 .era-track span { position: relative; color: #768891; font-size: 9px; text-align: center; }
 .era-track span::before { content: ""; position: absolute; top: -18px; left: 0; width: 1px; height: 8px; background: rgba(132, 177, 192, .28); }
@@ -172,38 +189,52 @@ body.modal-open .topbar, body.modal-open .scene-card, body.modal-open .scene-nav
   .scene-thumb { flex-basis: 72px; height: 50px; }
   .arrow { display: none; }
   .zoom-controls { right: 16px; bottom: 88px; }
-  .organism-hotspot b { display: none; }
-  .organism-hotspot { padding: 5px; }
-  .organism-modal { align-items: end; padding: 10px; }
-  .organism-card { display: block; width: 100%; max-height: calc(100vh - 20px); border-radius: 18px; }
-  .organism-close { top: 12px; right: 12px; width: 38px; height: 38px; font-size: 27px; }
-  .organism-visual { min-height: 0; height: 220px; border-radius: 17px 17px 0 0; }
-  .organism-visual img { max-height: none; object-position: center; }
+  .story-hotspot b { display: none; }
+  .story-hotspot { padding: 5px; }
+  .story-modal { align-items: end; padding: 10px; }
+  .story-card { display: block; width: 100%; max-height: calc(100vh - 20px); border-radius: 18px; }
+  .story-close { top: 12px; right: 12px; width: 38px; height: 38px; font-size: 27px; }
+  .story-visual { min-height: 0; height: 220px; border-radius: 17px 17px 0 0; }
+  .story-visual img { max-height: none; object-position: center; }
   .kind-pill { top: 13px; left: 13px; padding: 6px 10px; font-size: 11px; }
-  .organism-copy { padding: 12px 12px 8px; }
-  .organism-copy h2 { margin-right: 0; font-size: 27px; }
+  .story-copy { padding: 12px 12px 8px; }
+  .story-copy h2 { margin-right: 0; font-size: 27px; }
   .scientific { margin: 1px 0 9px; font-size: 13px; }
-  .organism-group { gap: 10px; margin-bottom: 9px; }
-  .organism-group b { font-size: 11px; }
-  .organism-group span { height: 18px; }
-  .organism-description { margin-bottom: 10px; padding-top: 8px; font-size: 11px; line-height: 1.4; }
-  .organism-facts { display: block; border-radius: 10px; }
-  .organism-facts div { grid-template-columns: 120px 1fr; min-height: 29px; padding: 3px 9px; border-right: 0 !important; border-bottom: 1px solid rgba(139, 207, 225, .16) !important; }
-  .organism-facts div:last-child { border-bottom: 0 !important; }
-  .organism-facts dt { font-size: 9px; }
-  .organism-facts dt i { width: 16px; font-size: 14px; }
-  .organism-facts dd { text-align: right; font-size: 10px; }
+  .story-group { gap: 10px; margin-bottom: 9px; }
+  .story-group b { font-size: 11px; }
+  .story-group span { height: 18px; }
+  .story-description { margin-bottom: 10px; padding-top: 8px; font-size: 11px; line-height: 1.4; }
+  .story-facts { display: block; border-radius: 10px; }
+  .story-facts div { grid-template-columns: 120px 1fr; min-height: 29px; padding: 3px 9px; border-right: 0 !important; border-bottom: 1px solid rgba(139, 207, 225, .16) !important; }
+  .story-facts div:last-child { border-bottom: 0 !important; }
+  .story-facts dt { font-size: 9px; }
+  .story-facts dt i { width: 16px; font-size: 14px; }
+  .story-facts dd { text-align: right; font-size: 10px; }
   .history-panel { grid-template-columns: .8fr 1.2fr; gap: 8px; margin: 8px 12px 0; padding: 10px; border-radius: 10px; }
   .history-panel > div + div { padding-left: 8px; }
   .history-panel strong { font-size: 14px; }
   .history-panel > div > span { font-size: 10px; }
-  .organism-tags { gap: 3px; margin-top: 6px; }
-  .organism-tags span { padding: 3px 5px; font-size: 7px; }
+  .story-tags { gap: 3px; margin-top: 6px; }
+  .story-tags span { padding: 3px 5px; font-size: 7px; }
   .era-track { margin: 9px 12px 13px; overflow: hidden; }
   .era-track span { min-width: 68px; font-size: 8px; }
 }
 
+/* Story cards intentionally use a simpler, editorial layout than organism dossiers. */
+.story-card { grid-template-areas: "visual copy"; grid-template-rows: minmax(440px, auto); }
+.story-copy { display: flex; flex-direction: column; justify-content: center; padding: 44px; }
+.story-copy h2 { margin: 5px 40px 20px 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(38px, 5vw, 62px); font-weight: 400; line-height: 1.02; }
+.story-kicker { margin: 0; color: #69e7ff; font-size: 11px; font-weight: 750; letter-spacing: .17em; text-transform: uppercase; }
+#story-body { margin: 0; padding-top: 20px; border-top: 1px solid rgba(105,231,255,.22); color: #eef3f5; font-size: 17px; line-height: 1.7; }
+.story-visual img { width: 100%; height: 100%; max-height: 560px; object-fit: cover; }
+
+@media (max-width: 640px) {
+  .story-copy { padding: 22px 18px 28px; }
+  .story-copy h2 { margin: 4px 30px 13px 0; font-size: 31px; }
+  #story-body { padding-top: 13px; font-size: 14px; line-height: 1.55; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   * { scroll-behavior: auto !important; transition: none !important; }
-  .modal-scrim, .organism-card { animation: none !important; }
+  .modal-scrim, .story-card { animation: none !important; }
 }
