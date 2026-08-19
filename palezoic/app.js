@@ -196,6 +196,7 @@
     title.textContent = sceneData[activeIndex].title;
     description.textContent = sceneData[activeIndex].description;
     count.textContent = (activeIndex + 1) + ' of ' + scenes.length;
+    document.getElementById('support-link').hidden = activeIndex !== scenes.length - 1;
     sceneToggle.setAttribute('aria-expanded', 'true');
     sceneDetails.hidden = false;
     sceneToggle.closest('.scene-card').classList.remove('is-collapsed');

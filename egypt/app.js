@@ -44,7 +44,7 @@
     button.addEventListener('click', function () { switchScene(index); }); strip.appendChild(button);
   });
   var thumbs = Array.prototype.slice.call(strip.children);
-  function updateCopy() { var scene = data.scenes[activeIndex]; document.getElementById('scene-title').textContent = scene.title; document.getElementById('scene-description').textContent = scene.description; document.getElementById('scene-count').textContent = (activeIndex + 1) + ' of ' + data.scenes.length; }
+  function updateCopy() { var scene = data.scenes[activeIndex]; document.getElementById('scene-title').textContent = scene.title; document.getElementById('scene-description').textContent = scene.description; document.getElementById('scene-count').textContent = (activeIndex + 1) + ' of ' + data.scenes.length; document.getElementById('support-link').hidden = activeIndex !== data.scenes.length - 1; }
   function switchScene(index) {
     var next = Math.max(0, Math.min(data.scenes.length - 1, index)); if (next === activeIndex && !switching) return;
     switching = true; closeStory(); activeIndex = next; document.body.classList.add('loading'); viewer.stopMovement(); viewer.loadScene(data.scenes[next].id, 0, 0, 90); updateCopy();
