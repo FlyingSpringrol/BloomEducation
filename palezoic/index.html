@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Paleozoic 360° Explorer</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.7/build/pannellum.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="viewer" aria-label="Interactive Paleozoic panorama"></main>
+
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">B</span><span>Bloom Education</span></div>
+    <button id="fullscreen" class="icon-button" type="button" aria-label="Enter fullscreen" title="Fullscreen">⛶</button>
+  </header>
+
+  <section class="scene-card" aria-live="polite">
+    <p class="eyebrow">Paleozoic expedition</p>
+    <div class="scene-heading">
+      <h1 id="scene-title">Into Deep Time</h1>
+      <button id="scene-toggle" class="scene-toggle" type="button" aria-expanded="true" aria-controls="scene-details" aria-label="Show or hide scene description"><span aria-hidden="true">⌃</span></button>
+    </div>
+    <div id="scene-details">
+      <p id="scene-description" class="scene-description">Welcome aboard our low-poly time machine. We’re traveling more than half a billion years into the past, to a world almost completely unlike our own.</p>
+      <p id="scene-count">1 of 9</p>
+    </div>
+  </section>
+
+  <div class="hint" id="hint"><span class="mouse">↕</span> Scroll to explore scenes <span>•</span> Drag to look around</div>
+
+  <nav class="scene-nav" aria-label="Paleozoic scenes">
+    <button id="previous" class="arrow" type="button" aria-label="Previous scene">←</button>
+    <div id="scene-strip" class="scene-strip"></div>
+    <button id="next" class="arrow" type="button" aria-label="Next scene">→</button>
+  </nav>
+
+  <div class="zoom-controls" aria-label="Zoom controls">
+    <button id="zoom-in" type="button" aria-label="Zoom in">+</button>
+    <button id="zoom-out" type="button" aria-label="Zoom out">−</button>
+  </div>
+
+  <div id="organism-modal" class="organism-modal" hidden>
+    <button class="modal-scrim" type="button" aria-label="Close organism details" data-close-modal></button>
+    <article class="organism-card" role="dialog" aria-modal="true" aria-labelledby="organism-name">
+      <button class="organism-close" type="button" aria-label="Close" data-close-modal>×</button>
+      <div class="organism-visual">
+        <span class="kind-pill">◉ <span id="organism-kind">ANIMAL</span></span>
+        <img id="organism-image" alt="">
+      </div>
+      <div class="organism-copy">
+        <h2 id="organism-name"></h2>
+        <p id="organism-scientific" class="scientific"></p>
+        <div id="organism-group" class="organism-group"></div>
+        <p id="organism-description" class="organism-description"></p>
+        <dl id="organism-facts" class="organism-facts"></dl>
+      </div>
+      <section class="history-panel">
+        <div><small>TIME PERIOD</small><strong id="organism-period"></strong><span id="organism-age"></span></div>
+        <div><small>FOUND IN</small><span id="organism-found"></span><div id="organism-tags" class="organism-tags"></div></div>
+      </section>
+      <div id="era-track" class="era-track" aria-label="Geological period"></div>
+    </article>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.7/build/pannellum.js"></script>
+  <script src="organism-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
