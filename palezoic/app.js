@@ -93,8 +93,18 @@
     setText('organism-found', data.found);
     setText('organism-kind', data.nutrition ? 'PLANT / ORGANISM' : 'ANIMAL');
     var image = document.getElementById('organism-image');
-    image.src = data.image;
+    var visual = image.closest('.organism-visual');
+    visual.classList.remove('is-ready');
+    visual.classList.add('is-loading');
     image.alt = data.name + ' reconstruction';
+    image.hidden = true;
+    image.removeAttribute('src');
+    var imageRequest = String((Number(image.dataset.request) || 0) + 1);
+    image.dataset.request = imageRequest;
+    var imageLoader = new Image();
+    imageLoader.onload = function () { if (image.dataset.request === imageRequest) { image.src = data.image; image.hidden = false; requestAnimationFrame(function () { visual.classList.remove('is-loading'); visual.classList.add('is-ready'); }); } };
+    imageLoader.onerror = function () { if (image.dataset.request === imageRequest) visual.classList.remove('is-loading'); };
+    imageLoader.src = data.image;
 
     var group = document.getElementById('organism-group');
     group.replaceChildren();

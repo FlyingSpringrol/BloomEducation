@@ -27,7 +27,7 @@
     document.getElementById('story-title').textContent = story.title;
     document.getElementById('story-kicker').textContent = story.kicker;
     document.getElementById('story-body').textContent = story.body;
-    var image = document.getElementById('story-image'); image.src = story.image; image.alt = story.title;
+    var image = document.getElementById('story-image'); var visual = image.closest('.story-visual'); visual.classList.remove('is-ready'); visual.classList.add('is-loading'); image.alt = story.title; image.hidden = true; image.removeAttribute('src'); var imageRequest = String((Number(image.dataset.request) || 0) + 1); image.dataset.request = imageRequest; var imageLoader = new Image(); imageLoader.onload = function () { if (image.dataset.request === imageRequest) { image.src = story.image; image.hidden = false; requestAnimationFrame(function () { visual.classList.remove('is-loading'); visual.classList.add('is-ready'); }); } }; imageLoader.onerror = function () { if (image.dataset.request === imageRequest) visual.classList.remove('is-loading'); }; imageLoader.src = story.image;
     modal.hidden = false; document.body.classList.add('modal-open'); modal.querySelector('.story-close').focus();
   }
   function closeStory() { if (modal.hidden) return; modal.hidden = true; document.body.classList.remove('modal-open'); }
